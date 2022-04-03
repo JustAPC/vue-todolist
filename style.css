@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.add-button {
+    background-color: #EEEFF2;
+    border-radius: 10px;
+    padding: 5px 15px;
+    border: 1px solid #98999A;
+}
+
+.todo-input {
+    border-radius: 5px;
+    border: 1px solid #98999A;
+}
+
+input::placeholder {
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+
+.container-bg {
+    background-color: #F4F7FA;
+}
+
+ul li {
+    border-bottom: 1px solid #E0E4E8;
+}
