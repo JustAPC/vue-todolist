@@ -28,3 +28,7 @@ input::placeholder {
 ul li {
     border-bottom: 1px solid #E0E4E8;
 }
+
+.done {
+    text-decoration: line-through;
+}

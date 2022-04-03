@@ -12,24 +12,34 @@
 <body>
 
     <div id="root">
-        <header class="py-3">
+        <header class="py-3"> <!--Titolo -->
             <h1 class="text-center">ToDo List</h1>
         </header>
 
-        <main class="container text-center">
-            <div class="py-3">
-                <input type="text" class="me-3 todo-input" placeholder="Nuovo Todo">
-                <button type="button" class="add-button">Aggiungi</button>
+        <main class="container text-center"> 
+            <!-- Aggiunta Nuovo Todo -->
+            <div class="py-3"> 
+                <input type="text" class="me-3 p-1 todo-input" 
+                placeholder="Nuovo Todo" v-model="nuovoTodo"
+                @keyup.enter="addTodo()"
+                >
+                <button type="button" class="add-button" @click="addTodo()">Aggiungi</button>
             </div>
 
-            <div class="container-bg mt-3">
+            <!-- Lista Todos -->
+            <div class="container-bg py-3">
+                
                 <ul class="pt-4 me-4"> 
-                    <li v-for="(todo, index) in todoList" :key="index" class="d-flex align-items-center justify-content-between py-3">
-                        <div>{{todo.text}}</div>
-                        <div><i class="fa-solid fa-xmark" @click="removeTodo(todoIndex)"></i></div>
+                    <li v-for="(todo, index) in todoList" :key="index" 
+                    class="d-flex align-items-center justify-content-between py-3">
+                        <div @click="done(todo)" :class="(todo.done == true) ? 'done' : '' ">
+                            {{todo.text}}
+                        </div>
+                        <div><i class="fa-solid fa-xmark" @click="removeTodo(index)"></i></div>
                     </li>
                 </ul>
-                <h1 class="py-5">Complimenti, hai già fatto tutto!</h1>
+                
+                <h1 v-if="todoList.length == 0" class="py-5">Complimenti, hai già fatto tutto!</h1>
             </div>
         </main>
     </div>
